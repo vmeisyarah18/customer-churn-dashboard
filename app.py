@@ -15,10 +15,6 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.stApp{
-    background:#F4F7FB;
-}
-
 .block-container{
     padding-top:2rem;
     padding-left:2rem;
