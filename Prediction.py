@@ -187,16 +187,18 @@ def show():
 
         input_df = pd.DataFrame([input_dict])
 
-
         input_df = pd.get_dummies(input_df)
-
+        
         model_features = model.get_booster().feature_names
-
+        
         input_df = input_df.reindex(
             columns=model_features,
             fill_value=0
         )
-        input_df = input_df.replace({True: 1, False: 0})
+
+        # Ubah semua kolom menjadi integer
+        input_df = input_df.astype("int64")
+        
         prob = model.predict_proba(input_df)[0][1]
 
         # SHAP
