@@ -12,7 +12,7 @@ def show():
     🔮 Customer Churn Prediction
     </h1>
     """, unsafe_allow_html=True)
-    st.subheader("Masukkan data pelanggan untuk memprediksi kemungkinan churn")
+    st.subheader("Masukkan informasi pelanggan untuk memprediksi kemungkinan terjadinya churn")
 
     # =========================
     # LOAD MODEL
