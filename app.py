@@ -9,11 +9,17 @@ st.set_page_config(
     page_title="Customer Churn Prediction",
     page_icon="📊",
     layout="wide"
+    initial_sidebar_state="expanded"
 )
 
 st.markdown("""
 <style>
-
+.block-container{
+    padding-top:2rem;
+    padding-left:2rem;
+    padding-right:2rem;
+    max-width:100%;
+}
 section[data-testid="stSidebar"]{
     background:#F8FAFC;
     border-right:1px solid #E5E7EB;
@@ -30,6 +36,18 @@ div[data-testid="stSidebarNav"]{
     font-weight:700;
     margin-bottom:10px;
 }
+div.stButton > button{
+    background:#2563EB;
+    color:white;
+    border-radius:10px;
+    border:none;
+    font-size:16px;
+    font-weight:bold;
+}
+
+div.stButton > button:hover{
+    background:#1D4ED8;
+}
             
 </style>
 """, unsafe_allow_html=True)
@@ -43,7 +61,7 @@ with st.sidebar:
     <hr>
     """, unsafe_allow_html=True)
 
-    selected = option_menu(
+    st.set_page_config
         menu_title=None,
         options=[
             "Dashboard",
@@ -55,30 +73,28 @@ with st.sidebar:
         ],
         default_index=0,
         styles={
-            "container": {
-                "padding": "18px",
-                "background-color": "#F8FAFC",
-                "border-radius": "12px",
+            "container":{
+                "padding":"8px",
+                "background-color":"#FFFFFF",
             },
-            "icon": {
-                "color": "#2563EB",
-                "font-size": "22px",
+        
+            "icon":{
+                "color":"#2563EB",
+                "font-size":"20px",
             },
-            "nav-link": {
-                "font-size": "30px",
-                "font-weight": "500",
-                "text-align": "left",
-                "margin": "8px 0",
-                "padding": "12px",
-                "border-radius": "10px",
-                "--hover-color": "#DBEAFE",
+        
+            "nav-link":{
+                "font-size":"18px",
+                "text-align":"left",
+                "margin":"5px",
+                "color":"#111111",
+                "--hover-color":"#EAF2FF",
             },
-            "nav-link-selected": {
-                "background-color": "#2563EB",
-                "color": "white",
-                "font-weight": "600",
-                "border-radius": "10px",
-            }
+        
+            "nav-link-selected":{
+                "background-color":"#2563EB",
+                "color":"white",
+            },
         }
     )
 
