@@ -72,14 +72,14 @@ def show():
 
     /* Judul metric */
     div[data-testid="stMetricLabel"]{
-        font-size:60px !important;
+        font-size:18px !important;
         font-weight:600;
-        color:#1e293b;
+        color:#374151;
     }
 
     /* Angka metric */
     div[data-testid="stMetricValue"]{
-        font-size:50px !important;
+        font-size:36px !important;
         font-weight:700;
         color:#1e293b;
     }
@@ -89,10 +89,9 @@ def show():
     ====================== */
     div[data-testid="stVerticalBlockBorderWrapper"]{
         background:white;
-        border-radius:18px;
+        border-radius:15px;
         padding:18px;
         box-shadow:0 2px 10px rgba(0,0,0,.08);
-        min-height:560px;
     }
                 
 
