@@ -7,7 +7,11 @@ import plotly.express as px
 
 def show():
 
-    st.title("Customer Churn Prediction")
+    st.markdown("""
+    <h1 style='color:#2563EB'>
+    🔮 Customer Churn Prediction
+    </h1>
+    """, unsafe_allow_html=True)
     st.subheader("Masukkan data pelanggan untuk memprediksi kemungkinan churn")
 
     # =========================
