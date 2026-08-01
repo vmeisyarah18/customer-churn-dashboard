@@ -8,7 +8,11 @@ from sklearn.metrics import (accuracy_score,precision_score,recall_score,f1_scor
 
 def show():
 
-    st.title("Customer Churn Dashboard")
+    st.markdown("""
+    <h1 style='color:#2563EB'>
+    📈 Customer Churn Dashboard
+    </h1>
+    """, unsafe_allow_html=True)
     st.subheader("Ringkasan prediksi churn pada dataset Telco Customer Churn")
 
     model = joblib.load("Model.pkl")
