@@ -13,7 +13,7 @@ def show():
     📈 Customer Churn Dashboard
     </h1>
     """, unsafe_allow_html=True)
-    st.subheader("Ringkasan prediksi churn pada dataset Telco Customer Churn")
+    st.subheader("Ringkasan statistik, performa model, dan hasil analisis customer churn pada dataset Telco Customer Churn")
 
     model = joblib.load("Model.pkl")
     x_test = pd.read_csv("data/x_test.csv")
