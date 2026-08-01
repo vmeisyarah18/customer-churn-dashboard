@@ -198,8 +198,11 @@ def show():
 
         # Ubah semua kolom menjadi integer
         input_df = input_df.astype("int64")
-        print(input_df)
-        print(input_df.dtypes)
+        st.write("Input DataFrame:")
+        st.write(input_df)
+        
+        st.write("Data Types:")
+        st.write(input_df.dtypes)
         prob = model.predict_proba(input_df)[0][1]
 
         # SHAP
