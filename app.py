@@ -14,41 +14,41 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+
+.stApp{
+    background:#F4F7FB;
+}
+
 .block-container{
     padding-top:2rem;
     padding-left:2rem;
     padding-right:2rem;
-    max-width:100%;
-}
-section[data-testid="stSidebar"]{
-    background:#F8FAFC;
-    border-right:1px solid #E5E7EB;
 }
 
-div[data-testid="stSidebarNav"]{
-    display:none;
+section[data-testid="stSidebar"]{
+    background:#FFFFFF;
+    border-right:1px solid #E5E7EB;
 }
 
 .sidebar-title{
     text-align:center;
+    font-size:30px;
     color:#2563EB;
-    font-size:40px;
-    font-weight:700;
+    font-weight:bold;
     margin-bottom:10px;
 }
+
 div.stButton > button{
     background:#2563EB;
     color:white;
-    border-radius:10px;
-    border:none;
-    font-size:16px;
+    border-radius:8px;
     font-weight:bold;
 }
 
 div.stButton > button:hover{
     background:#1D4ED8;
 }
-            
+
 </style>
 """, unsafe_allow_html=True)
 
