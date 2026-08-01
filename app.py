@@ -8,7 +8,7 @@ import Prediction
 st.set_page_config(
     page_title="Customer Churn Prediction",
     page_icon="📊",
-    layout="wide"
+    layout="wide",
     initial_sidebar_state="expanded"
 )
 
@@ -61,42 +61,42 @@ with st.sidebar:
     <hr>
     """, unsafe_allow_html=True)
 
-    st.set_page_config
-        menu_title=None,
-        options=[
-            "Dashboard",
-            "Prediction"
-        ],
-        icons=[
-            "house-door-fill",
-            "graph-up-arrow"
-        ],
-        default_index=0,
-        styles={
-            "container":{
-                "padding":"8px",
-                "background-color":"#FFFFFF",
-            },
-        
-            "icon":{
-                "color":"#2563EB",
-                "font-size":"20px",
-            },
-        
-            "nav-link":{
-                "font-size":"18px",
-                "text-align":"left",
-                "margin":"5px",
-                "color":"#111111",
-                "--hover-color":"#EAF2FF",
-            },
-        
-            "nav-link-selected":{
-                "background-color":"#2563EB",
-                "color":"white",
-            },
-        }
-    )
+    selected = option_menu(
+    menu_title=None,
+    options=[
+        "Dashboard",
+        "Prediction"
+    ],
+    icons=[
+        "house-door-fill",
+        "graph-up-arrow"
+    ],
+    default_index=0,
+    styles={
+        "container":{
+            "padding":"8px",
+            "background-color":"#FFFFFF",
+        },
+
+        "icon":{
+            "color":"#2563EB",
+            "font-size":"20px",
+        },
+
+        "nav-link":{
+            "font-size":"18px",
+            "text-align":"left",
+            "margin":"5px",
+            "color":"#111111",
+            "--hover-color":"#EAF2FF",
+        },
+
+        "nav-link-selected":{
+            "background-color":"#2563EB",
+            "color":"white",
+        },
+    }
+)
 
 if selected == "Dashboard":
     Dashboard.show()
