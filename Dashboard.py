@@ -145,7 +145,7 @@ def show():
     # =========================
     # ROW 1
     # =========================
-    col1, col2, col3 = st.columns([1.3,1.2,1.6])
+    col1, col2, col3 = st.columns([1.4,1.2,1.6])
 
     # =========================
     # DISTRIBUSI CHURN
@@ -209,7 +209,6 @@ def show():
     # INFORMASI MODEL
     # =========================
     with col3:
-        st.write("")
         with st.container(border=True):
 
             st.subheader("Informasi Model")
