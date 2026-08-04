@@ -8,12 +8,8 @@ from sklearn.metrics import (accuracy_score,precision_score,recall_score,f1_scor
 
 def show():
 
-    st.markdown("""
-    <h1 style='color:#2563EB'>
-    📈 Customer Churn Dashboard
-    </h1>
-    """, unsafe_allow_html=True)
-    st.subheader("Ringkasan statistik, performa model, dan hasil analisis customer churn pada dataset Telco Customer Churn")
+    st.title("Customer Churn Dashboard")
+    st.subheader("Ringkasan prediksi churn pada dataset Telco Customer Churn")
 
     model = joblib.load("Model.pkl")
     x_test = pd.read_csv("data/x_test.csv")
@@ -72,14 +68,14 @@ def show():
 
     /* Judul metric */
     div[data-testid="stMetricLabel"]{
-        font-size:18px !important;
+        font-size:60px !important;
         font-weight:600;
-        color:#374151;
+        color:#1e293b;
     }
 
     /* Angka metric */
     div[data-testid="stMetricValue"]{
-        font-size:36px !important;
+        font-size:50px !important;
         font-weight:700;
         color:#1e293b;
     }
@@ -89,9 +85,10 @@ def show():
     ====================== */
     div[data-testid="stVerticalBlockBorderWrapper"]{
         background:white;
-        border-radius:15px;
+        border-radius:18px;
         padding:18px;
         box-shadow:0 2px 10px rgba(0,0,0,.08);
+        min-height:560px;
     }
                 
 
@@ -142,60 +139,10 @@ def show():
     with c4:
         st.metric("⚠️ High Risk Customer", f"{high_risk:,}")
 
-    st.markdown("""
-    <style>
-    
-    /* Dashboard */
-    .block-container{
-        padding-top:1rem;
-        padding-bottom:1rem;
-    }
-    
-    /* Card */
-    .card{
-        background:white;
-        border:1px solid #E5E7EB;
-        border-radius:14px;
-        padding:18px;
-        box-shadow:0 2px 8px rgba(0,0,0,.05);
-        margin-bottom:12px;
-    }
-    
-    /* Judul kecil */
-    .card-title{
-        font-size:16px;
-        color:#6b7280;
-        font-weight:600;
-    }
-    
-    /* Angka besar */
-    .card-value{
-        font-size:34px;
-        font-weight:700;
-        color:#1f2937;
-    }
-    
-    /* Informasi model */
-    .info-row{
-        padding:12px 0;
-        border-bottom:1px solid #ECECEC;
-    }
-    
-    /* Metric */
-    div[data-testid="stMetric"]{
-        background:white;
-        border:1px solid #E5E7EB;
-        border-radius:12px;
-        padding:14px;
-        box-shadow:0 2px 6px rgba(0,0,0,.05);
-    }
-    
-    </style>
-    """, unsafe_allow_html=True)
     # =========================
     # ROW 1
     # =========================
-    col1,col2,col3 = st.columns([1.15,1.15,1.7], gap="medium")
+    col1, col2, col3 = st.columns([1.2,1.2,1.6])
 
     # =========================
     # DISTRIBUSI CHURN
@@ -221,7 +168,7 @@ def show():
 
             fig.update_layout(
                 template="plotly_white",
-                height=480,
+                height=525  ,
                 showlegend=False,
                 margin=dict(l=10,r=10,t=10,b=10)
             )
@@ -236,41 +183,25 @@ def show():
 
             st.subheader("Rata-rata Charges")
 
+            st.info(f"""
+    ### Monthly Charges
+
+    # $ {avg_monthly:.2f}
+    """)
+
+            st.success(f"""
+    ### Total Charges
+
+    # $ {avg_total:.2f}
+    """)
+
             avg_tenure = df["tenure"].mean()
 
-            st.markdown(f"""
-            <div class="card">
-            
-            <div class="card-title">
-            Monthly Charges
-            </div>
-            
-            <div class="card-value">
-            ${avg_monthly:.2f}
-            </div>
-            
-            <hr>
-            
-            <div class="card-title">
-            Total Charges
-            </div>
-            
-            <div class="card-value">
-            ${avg_total:.2f}
-            </div>
-            
-            <hr>
-            
-            <div class="card-title">
-            Average Tenure
-            </div>
-            
-            <div class="card-value">
-            {avg_tenure:.1f} Months
-            </div>
-            
-            </div>
-            """, unsafe_allow_html=True)
+            st.warning(f"""
+    ### Average Tenure
+
+    # {avg_tenure:.1f} Months
+    """)
     # =========================
     # INFORMASI MODEL
     # =========================
@@ -279,23 +210,15 @@ def show():
 
             st.subheader("Informasi Model")
 
-            st.markdown(f"""
-            <div class="card">
-            
-            <div class="info-row">
-            📋 <b>Algoritma</b><br>
-            XGBoost Classifier
-            </div>
-            
-            <div class="info-row">
-            🎯 <b>Target</b><br>
-            Customer Churn
-            </div>
-            
-            <div class="info-row">
-            ⚙️ <b>Metode Validasi</b><br>
-            Train-Test Split (80 : 20)
-            
+            st.markdown("""
+            <div class="model-info">
+
+            📋 <b>Algoritma</b> : XGBoost Classifier<br>
+
+            🎯 <b>Target</b> : Churn (Yes / No)<br>
+
+            ⚙️ <b>Metode Validasi</b> : Train-Test Split (80:20)
+
             </div>
             """, unsafe_allow_html=True)
 
@@ -401,8 +324,8 @@ def show():
 
             fig_shap.update_layout(
                 template="plotly_white",
-                height=340,
-                margin=dict(l=10,r=10,t=10,b=10),
+                height=320,
+                margin=dict(l=10, r=10, t=10, b=10),
                 xaxis_title="SHAP Importance",
                 yaxis_title="",
                 yaxis=dict(autorange="reversed"),
