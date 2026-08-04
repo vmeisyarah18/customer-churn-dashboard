@@ -209,6 +209,7 @@ def show():
     # INFORMASI MODEL
     # =========================
     with col3:
+        st.write("")
         with st.container(border=True):
 
             st.subheader("Informasi Model")
